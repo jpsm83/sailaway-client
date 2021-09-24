@@ -58,69 +58,78 @@ You have to signin, login and logout to be able to use all the web functionality
 ### Client / Frontend
 
 ### React Router Routes (React App)
-| Path                      | Component            | Permissions                 | Behavior                                                                  |
-| ------------------------- | -------------------- | --------------------------- | --------------------------------------------------------------------------|
-| `/`                       | SplashPage           | public `<Route>`            | Home page, Login form, link to signup, navigate to recipes after login    |
-| `/signup`                 | SignupPage           | anon only `<AnonRoute>`     | Signup form, link to home, navigate to recipes after signup               |
-| `/user`                   | UserProfilePage      | user only `<AnonRoute>`     | Signup form, link to home, delete profile button, update button, logout   |
-|                           |                      |                             | button, navigateto recipes after update                                   |
-| `/recipes`                | RecipesListPage      | user only `<PrivateRoute>`  | Shows all recipes in a list, filter recipes by cousine, type, time of     |
-|                           |                      |                             | prep and name, link to create, link to a choose recipe card, logout button|
-| `/recipe/:id`             | RecipeCard           | user only `<PrivateRoute>`  | Details of a recipe to edit or delete, link to recipes, link to create    |
-|                           |                      |                             | recipe, logout button                                                     |
-| `/recipe/:id/edit`        | RecipeCard           | user only `<PrivateRoute>`  | Create recipe form, link to recipes, update button, logout button         |
-| `/recipe/create`          | CreateRecipe         | user only `<PrivateRoute>`  | Create recipe form, link to recipes, logout button                        |
+| Path | Page | Permissions | Behavior |
+| - | - | - | - |
+| `/` | Home Page | public `<Route>` | Home page, Login link, Signup link, filter boats for rent, show nearby options, advertize boat button, choose type of boat |
+| `/signup` | Signup Page | anon only `<AnonRoute>` | Signup form, Home link, Login link |
+| `/login` | Login Page | anon only `<AnonRoute>` | Login form, Home link, Signup link |
+| `/user/:id` | User Home Page | user only `<PrivateRoute>` | Edit user profile link, Logout button, filter boats for rent, show nearby options, advertize boat button, choose type of boat |
+| `/user/:id/edit` | User Edit Profile Page | user only `<PrivateRoute>` | Edit user form, Home link, Logout button | 
+| `/boats` | Boats page | anon `<AnonRoute>` | Shows all boats available in a list and their location on the map, filter boats for rent, choose type of boat, Login link, Signup link, Logout link, advertize boat button |
+| `/boat/create` | Boat Form | user only `<PrivateRoute>` | Create boat form, Home link, Logout button | 
+| `/boats/:id` | Boat Detail | anon `<AnonRoute>` | Details of a boat, Reserve button, Review button, Home link, Login link, Signup link, Logout link, advertize boat button |
+| `/boat/:id/edit` | Boat Form | user only `<PrivateRoute>` | Edit boat form, Home link, Logout button | 
 
 
 ### Components
 
-- SplashPage (Home - Login)
+- NavBar (Home, Login, Signup, Logout, Profile, Become a host).
 
-- RecipesListPage (Recipes)
+- Experience (Private Boat, Share Boat, Party Boat, Fishing experience).
 
-- SignupPage (Signup Form)
+- SearchBar (Search by date, location, guests).
 
-- CreateRecipePage (Create Form)
+- FilterBar (filter by boat type (Yacht, pontoon, catamaran, sailboat), skypper (with or without) and organize by price or size)
 
-- RecipeCard (Recipe Detailed)
+- BoatsList (List of boats from search filtered).
 
-- UserProfile (User Data)
+- BoatDetail (Full description, reviews, details and features. Option to reserve it and contact skypper).
 
-- Navbar (Logout Button)
+- NearbyAdvice (Nearby options base in the comunnit reviews).
 
+- UserForm (User Data, create, read, update, delete).
+
+- BoatForm (Boat Data, create, read, update, delete).
+
+- MyBoats (List of my own advertize boats).
+
+- HistoryBooked (List of my booking history).
+
+- ReviewsForm (Reviews Data, create, read, update, delete).
 
 ### Services
 
 - Auth Service
   - auth.login(user)
   - auth.signup(user)
+  - isLoggedIn(user)
   - auth.logout()
-- Recipes Service
-  - recipes.list()
-  - recipes.card(id)
-  - recipe.edit(id)
-  - recipe.create(id)
-  - recipe.delete(id)
+- Boat Service
+  - boat.list()
+  - boat.detail(id)
+  - boat.edit(id)
+  - boat.create(id)
+  - boat.delete(id)
 - User Service 
   - user.edit(id)
   - user.delete(id)
 
 
 ### Data Structure FrontEnd
-|
+```
 ├── public
 |   └── _index.html
 ├── src
 |   └── components
-|       └── login.js
-|       └── siginForm.js
-|       └── recipeForm.js
-|       └── navFilter.js
-|       └── navbar.js
-|       └── recipeList.js
-|       └── recipeCard.js
-|       └── logout.js
-|       └── data.js
+|       └── NavBar.js
+|       └── Experience.js
+|       └── SearchBar.js
+|       └── FilterBar.js
+|       └── BoatList.js
+|       └── BoatDetail.js
+|       └── NearbyAdvice.js
+|       └── MyBoats.js
+|       └── HistoryBooked.js
 |   └── app.css
 |   └── app.js
 |   └── index.css
@@ -130,7 +139,7 @@ You have to signin, login and logout to be able to use all the web functionality
 ├── package-lock.json
 └── package.json
 └── README.md
-
+```
 
 ### Server / Backend
 
@@ -140,32 +149,92 @@ You have to signin, login and logout to be able to use all the web functionality
 
 ```javascript
 {
-  userName: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  recipes: []
+  userName: {type: String, required: true},
+  email: {type: String,
+    unique: true, 
+    lowercase: true,
+    trim: true,
+    required: true,
+    match: [/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/, 'Please fill a valid email']
+  },
+  password: {type: String, required: true, minlenght: 5},
+  photo: {type: String}
+  myBoatss: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Boat'
+  }]
+}, {
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      delete ret.password;
+      return ret;
+    }
+  }
 }
 ```
 
 - Recipe model
 
 ```javascript
- {
-   dishName: {type: String, required: true, unique: true},
-   cousine: {type: String, required: true},
-   type: {type: String, required: true},
-   prepTime: {type: Number, required: true},
-   img: {type: String},
-   ingredients: {type: String, required: true},
-   preparation: {type: String, required: true},
-   howToCook: {type: String, required: true}
- }
+{
+    boatName: { type: String, maxlength: 500, required: true},
+    type: { type: Selection, required: true},
+    image: { type: String },
+    guestMax: { type: Number, required: true },
+    guestMin: { type: Number, required: true },
+    size: { type: Number, required: true },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }
+    review: {
+      type: Schema.Types.ObjectId,
+      ref: 'Review'
+    }
+}, {
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      return ret;
+    }
+  }
+}
+```
+
+- Review model
+
+```javascript
+{
+    review: { type: String, maxlength: 5000, required: true},
+    stars: { type: Selection, required: true},
+    boat: {
+      type: Schema.Types.ObjectId,
+      ref: 'boat'
+    }
+}, {
+  timestamps: true,
+  toJSON: {
+    transform: (doc, ret) => {
+      ret.id = doc._id;
+      delete ret._id;
+      delete ret.__v;
+      return ret;
+    }
+  }
+}
 ```
 
 
 ### API Endpoints (backend routes)
 
-| HTTP Method | URL                    | Request Body             | Success status | Error Status | Description                                                      |
+| HTTP Method | URL | Request Body | Success status | Error Status | Description                                                      |
 | ----------- | ---------------------- | ------------------------ | -------------- | ------------ | ---------------------------------------------------------------- |
 | GET         | `/auth/profile`   `    | Saved session            | 200            | 404          | Check if user is logged in and return profile page               |
 | POST        | `/auth/signup`         | {name, email, password}  | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then |
