@@ -231,29 +231,26 @@ You have to signin, login and logout to be able to use all the web functionality
 }
 ```
 
-
 ### API Endpoints (backend routes)
 
-| HTTP Method | URL | Request Body | Success status | Error Status | Description                                                      |
-| ----------- | ---------------------- | ------------------------ | -------------- | ------------ | ---------------------------------------------------------------- |
-| GET         | `/auth/profile`   `    | Saved session            | 200            | 404          | Check if user is logged in and return profile page               |
-| POST        | `/auth/signup`         | {name, email, password}  | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then |
-|             |                        |                          |                |              | create user with encrypted password, and store user in session   |
-| POST        | `/auth/login`          | {username, password}     | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if   |
-|             |                        |                          |                |              | password matches (404), then stores user in session              |
-| POST        | `/auth/logout`         | (empty)                  | 204            | 400          | Logs out the user                                                |
-| GET         | `/api/recipes`         |                          | 200            | 400          | Show all recipes                                                 |                    
-| GET         | `/api/recipeCard/:id`  | {id}                     | 200            | 400          | Show specific recipe                                             |
-| POST        | `/api/recipeCard`      | {}                       | 201            | 400          | Create and save a new recipe                                     |
-| PUT         | `/api/recipeCard/:id`  | {id}                     | 200            | 400          | edit recipe                                                      |
-| DELETE      | `/api/recipeCard/:id`  | {id}                     | 201            | 400          | delete recipe                                                    |
-| GET         | `/api/user`            | {id}                     | 200            | 400          | Show user                                                        |
-| PUT         | `/api/user`            | {id}                     | 200            | 400          | edit user                                                        |
-| DELETE      | `/api/user`            | {id}                     | 201            | 400          | delete user                                                      |
+| HTTP Method | URL | Request Body | Success status | Error Status | Description |
+| - | - | - | - | - | - |
+| GET | `/auth/profile` | Saved session | 200 | 404 | Check if user is logged in and return profile home page |
+| POST| `/auth/signup` | {name, email, password}  | 201 | 404 | Checks if fields are not empty (422) and user do not exists (409), then create user with encrypted password, and store user in session |
+| POST | `/auth/login` | {username, password} | 200 | 401 | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| POST | `/auth/logout` | (empty) | 204 | 400 | Logs out the user and clean the session |
+| GET | `/api/boats` | (empty) | 200 | 400 | Show all boats |
+| GET | `/api/boat/:id` | {id} | 200 | 400 | Show specific boat |
+| POST | `/api/create-boat` | {body} | 201 | 400 | Create and save a new boat |
+| PUT | `/api/boat/:id` | {id} | 200 | 400 | edit boat |
+| DELETE | `/api/boat/:id` | {id} | 201 | 400 | delete boat |
+| GET | `/api/user` | {id}| 200 | 400 | Show user |
+| PUT | `/api/user/:id/` | {id} | 200 | 400 | edit user |
+| DELETE | `/api/user/:id` | {id} | 201 | 400 | delete user |
 
 
 ### Data Structure BackEnd
-|
+```
 ├── bin
 |   └── www
 ├── configs
@@ -275,18 +272,16 @@ You have to signin, login and logout to be able to use all the web functionality
 ├── package-lock.json
 └── package.json
 └── Recipes App.postman_collection
-
+```
 
 ### link
-* [Trello](https://trello.com/b/3QyYrcJN/my-recipe-library)
+* [Trello](https://something)
 
 
 ### Git
-* [GitHub] Server (https://github.com/jpsm83/my-recipes-library-server)
-* [GitHub] Client (https://github.com/jpsm83/my-recipes-library-client)
+* [GitHub] Server (https://github.com/jpsm83/sailaway-server)
+* [GitHub] Client (https://github.com/jpsm83/sailaway-client)
 
 
 ### Slides
-* [Figma](https://www.figma.com/file/qXacoaMeK3VZwah8Z5zY9i/Restaurant-Search?node-id=0%3A1)
-# my-recipes-library-client
-
+* [Figma](https://something)
