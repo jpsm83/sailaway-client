@@ -1,0 +1,97 @@
+.navbar {
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    margin-top: 0;
+    z-index: 50;
+    background-color: white;
+    box-shadow: 1px 1px 8px 1px #e0e0e0;
+    justify-content: space-between;
+}
+
+.navLeft {
+    display: flex;
+    position: relative;
+    height: 25px;
+    cursor: pointer;
+    padding-left: 2px;
+}
+
+.logo{
+    object-fit: contain;
+    justify-content: left;
+}
+
+.navCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto 5px auto;
+    border: .8px solid rgb(226, 226, 226);
+    box-shadow: .3px .3px 3px .3px #e0e0e0;
+    border-radius: 8px;
+}
+
+.searchInput{
+    display: flex;
+    flex-grow: inherit;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(107, 107, 107);
+    background-color: transparent;
+    outline: none;
+    font-size: 8px;
+
+}
+.searchBar {
+    height: 10px;
+    background-color: teal;
+    color: white;
+    border-radius: 50%;
+    padding: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.navRight {
+    display: flex;
+    position: relative;
+    padding-right: 5px;
+    align-items: center;
+    justify-content: end;
+    padding-right: 9px;
+}
+
+.navRight p{
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: rgb(133, 133, 133);
+}
+
+.globeAltIcon {
+    height: 6px;
+    align-items: center;
+    margin-left: 6px;
+    color: rgb(73, 73, 73);
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    border: 1px solid teal;
+    border-radius: 50px;
+    margin-left: 6px;
+    padding: 1.5px;
+    height: 15px;
+}
+
+.menuOption {
+    height: 10px;
+    color: rgb(112, 112, 112);
+    cursor: pointer;
+    padding: 1.5px;
+
+}
