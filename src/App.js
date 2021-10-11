@@ -1,4 +1,5 @@
 import { Route, Switch } from 'react-router';
+import 'tailwindcss'
 import './App.css';
 import Home from './pages/Home/Home';
 
