@@ -1,0 +1,86 @@
+.bannerContainer {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannerImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.sailFrom {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.sailFrom p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: rgb(236, 236, 236);
+}
+
+.buttonContainer {display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    width: 100vw;
+    height: 25px;
+}
+.buttonFlexible {
+    color: teal;
+    background-color: white;
+    padding: 3px 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    box-shadow: .3px .3px 3px .3px #e0e0e0;
+    border-radius: 20px;
+}
+
+.buttonFlexible:hover {
+    box-shadow: .6px .6px 6px .6px #e0e0e0;
+}
+
+.buttonFlexible:active {
+    transform: scale(.9);
+    transition: 100ms;
+}
+
+@media (min-width: 400px) {
+    .bannerContainer {
+        height: 280px;
+    }
+
+    .sailFrom p {
+        font-size: 13px;
+    }
+
+    .buttonFlexible {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 500px) {
+    .bannerContainer {
+        height: 350px;
+    }
+
+    .sailFrom p {
+        font-size: 16px;
+    }
+    
+    .buttonFlexible {
+        font-size: 16px;
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css';
+import './navbar.css';
 import { SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UserIcon } from '@heroicons/react/solid';
 
 export default function Navbar() {
@@ -10,13 +10,13 @@ export default function Navbar() {
             </div>
             <div className='navCenter'>
                 <input className='searchInput' type='text' placeholder='Start your search' />
-                <SearchIcon className='searchBar' />
+                <SearchIcon className='searchIcon' />
             </div>
             <div className='navRight'>
                 <p>Become a host</p>
                 <GlobeAltIcon className='globeAltIcon' />
                 <div className='menu'>
-                    <MenuIcon className='menuOption'/>
+                    <MenuIcon className='menuIcon'/>
                     <UserCircleIcon className='menuOption'/>
                 </div>
             </div>
