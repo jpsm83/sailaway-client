@@ -16,5 +16,5 @@ export default class AuthService {
     login = (data) => this.instance.post('/login', data);
     logout = () => this.instance.post('/logout');
     isLoggedIn = () => this.instance.get('/loggedIn');
-    edit = (data) => this.instance.put('/edit', data);
+    edit = (data) => this.instance.put('/edit-user', data);
 }
