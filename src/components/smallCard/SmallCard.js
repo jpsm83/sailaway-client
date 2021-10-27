@@ -3,7 +3,7 @@ import './smallCard.css'
 import { Link } from 'react-router-dom';
 // import { withAuth } from '../../context/auth.context';
 
-export default function SmallCard({ country, continent, image, refreshState }) {
+export default function SmallCard({ country, city, image, refreshState }) {
     return (
         <div className="nearbyCard">
             <div className="nearbyImg">
@@ -11,7 +11,7 @@ export default function SmallCard({ country, continent, image, refreshState }) {
             </div>
             <div className="nearbyDescription">
                 <p className="country">{country}</p>
-                <p className="continent">{continent}</p>
+                <p className="city">{city}</p>
             </div>
             <p>{refreshState}</p>
         </div>
