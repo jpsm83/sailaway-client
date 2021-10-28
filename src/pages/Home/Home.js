@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './home.css';
 import Banner from '../../components/banner/Banner';
 import ExploreNearby from '../../components/exploreNearby/ExploreNearby';
+import YourBoatType from '../../components/yourBoatType/YourBoatType';
 
 export default class Home extends Component {
     render() {
@@ -10,6 +11,7 @@ export default class Home extends Component {
                 <Banner />
                 <div className="main">
                     <ExploreNearby />
+                    <YourBoatType />
                 </div>
             </div>
         )
