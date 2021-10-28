@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import './home.css';
-import Banner from '../../components/banner/Banner';
+import MainBanner from '../../components/mainBanner/MainBanner';
 import ExploreNearby from '../../components/exploreNearby/ExploreNearby';
 import YourBoatType from '../../components/yourBoatType/YourBoatType';
+import BecomeHostBanner from '../../components/becomeHostBanner/BecomeHostBanner';
 
 export default class Home extends Component {
     render() {
         return (
             <div>
-                <Banner />
+                <MainBanner />
                 <div className="main">
                     <ExploreNearby />
                     <YourBoatType />
+                    <BecomeHostBanner />
                 </div>
             </div>
         )

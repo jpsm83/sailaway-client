@@ -2,7 +2,7 @@
     display: flex;
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 160px;
     justify-content: center;
     align-items: center;
 }
@@ -32,7 +32,7 @@
     color: rgb(236, 236, 236);
 }
 
-.buttonContainer {
+.buttonContainerMain {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +48,7 @@
     font-size: 10px;
     box-shadow: .3px .3px 3px .3px #e0e0e0;
     border-radius: 20px;
+    transition: 200ms;
 }
 
 .buttonFlexible:hover {
@@ -56,12 +57,11 @@
 
 .buttonFlexible:active {
     transform: scale(.9);
-    transition: 100ms;
 }
 
 @media (min-width: 400px) {
     .bannerContainer {
-        height: 280px;
+        height: 200px;
     }
 
     .sailFrom p {
@@ -75,7 +75,7 @@
 
 @media (min-width: 500px) {
     .bannerContainer {
-        height: 350px;
+        height: 240px;
     }
 
     .sailFrom p {
