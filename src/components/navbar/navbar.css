@@ -1,17 +1,23 @@
+.navbarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: white;
+    box-shadow: 1px 1px 8px 1px #e0e0e0;
+}
+
 .navbar {
     display: flex;
     width: 100%;
-    position: fixed;
-    margin-top: 0;
-    z-index: 50;
-    background-color: white;
-    box-shadow: 1px 1px 8px 1px #e0e0e0;
     justify-content: space-evenly;
+    align-items: center;    
 }
 
 .navLeft {
     display: flex;
-    height: 25px;
+    height: 40px;
     cursor: pointer;
 }
 
@@ -20,31 +26,37 @@
     justify-content: left;
 }
 
+.navCenterContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .navCenter {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5px auto 5px auto;
     border: .8px solid rgb(226, 226, 226);
     box-shadow: .3px .3px 3px .3px #e0e0e0;
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
 .searchInput{
     border: none;
-    margin-left: 5px;
+    margin-left: 12px;
     margin-right: 5px;
     background-color: transparent;
     outline: none;
-    font-size: 8px;
-    width: 180px;
+    font-size: 13px;
+    min-width: 220px;
+    height: 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(133, 133, 133);
-
 }
 
 .searchIcon {
-    height: 10px;
+    height: 15px;
     background-color: teal;
     color: white;
     border-radius: 50%;
@@ -57,20 +69,19 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    margin-right: 9px;
-    margin-left: 9px;
+    margin-left: 5px;
 }
 
 .navRight p{
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
+    font-size: 15px;
     color: rgb(133, 133, 133);
 }
 
 .globeAltIcon {
-    height: 10px;
-    margin-left: 6px;
+    height: 20px;
+    margin-left: 8px;
     color: rgb(73, 73, 73);
     cursor: pointer;
 }
@@ -81,20 +92,19 @@
     justify-content: center;
     border: 1px solid teal;
     border-radius: 20px;
-    margin-left: 6px;
-    height: 20px;
-    width: 30px;
+    margin-left: 8px;
+    padding: 0 2px 0 6px;
 }
 
 .menuIcon {
-    height: 10px;
-    color: rgb(112, 112, 112);
+    height: 28px;
+    color: rgb(73, 73, 73);
     cursor: pointer;
     padding: 1.5px;
 }
 
 /* whem screem is bigger tham max-width them execute the code */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .searchIcon {
         display: none;
     }

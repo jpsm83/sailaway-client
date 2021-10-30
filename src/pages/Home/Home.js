@@ -8,7 +8,7 @@ import BecomeHostBanner from '../../components/becomeHostBanner/BecomeHostBanner
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <div className="home">
                 <MainBanner />
                 <div className="main">
                     <ExploreNearby />

@@ -9,7 +9,7 @@ import Footer from "./components/footer/Footer";
 export default function App() {
   return (
     <div>
-      <div>
+      <div className="navbarSticky">
         <Navbar />
       </div>
       <Switch>
