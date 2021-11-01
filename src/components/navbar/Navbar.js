@@ -49,7 +49,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="calendarInput">
-        {searchInput && <Calendar resetInput={() => resetInput()} />}
+        {searchInput && <Calendar resetInput={() => resetInput()} searchInput={searchInput} />}
       </div>
     </div>
   );

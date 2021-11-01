@@ -4,6 +4,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { UserIcon } from '@heroicons/react/solid';
 import './calendar.css';
+import { useHistory } from 'react-router-dom';
 
 // with 'props' as parameter you are able to get all the info pass throught the parent
 // in our case we are using the funcion 'resetInput'
@@ -12,6 +13,7 @@ export default function Calendar(props) {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [numOfGuest, setNumOfGuest] = useState(1);
+    const history = useHistory();
 
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate);
@@ -20,6 +22,20 @@ export default function Calendar(props) {
 
     const updatesearch = () => {
         props.resetInput();
+    }
+
+
+    const search = () => {
+        history.push({
+            pathname: "/search",
+            query: {
+                location: props.searchInput,
+                startDate: startDate.toISOString(),
+                endDate: endDate.toISOString(),
+                numOfGuest,
+            }
+        });
+        console.log(history)
     }
 
     const selectionRange = {
@@ -45,7 +61,7 @@ export default function Calendar(props) {
             </div>
             <div className="numGuestButtonsContainer">
                 <button onClick={() => updatesearch()} >Cancel</button>
-                <button id="guestButtonSearch">Search</button>
+                    <button id="guestButtonSearch" onClick={() => search()} >Search</button>
             </div>
         </div>
     )
