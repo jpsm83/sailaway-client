@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Footer from "./components/footer/Footer";
+import Search from "./pages/Search/Search";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       </div>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/search" component={Search} />
       </Switch>
       <div>
         <Footer />

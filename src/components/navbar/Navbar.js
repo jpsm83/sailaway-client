@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./navbar.css";
 import {
   SearchIcon,
@@ -19,13 +20,13 @@ export default function Navbar() {
   return (
     <div className="navbarContainer">
       <div className="navbar">
-        <div className="navLeft">
+        <Link className="navLeft" to="/">
           <img
             className="logo"
             src="https://media.istockphoto.com/vectors/creative-blue-yacht-boat-logo-design-vector-symbol-illustration-vector-id1158114738?k=20&m=1158114738&s=170667a&w=0&h=IabJeiUBbNCM52wjOdjsouIj-yeqy57BHVCqGkDaHEs="
             alt="boat"
           />
-        </div>
+        </Link>
         <div className="navCenterContainer">
           <div className="navCenter">
             <input
