@@ -1,11 +1,17 @@
 import React from "react";
 import "./search.css";
+import { format } from 'date-fns';
 
-export default function Search() {
+export default function Search({ city, startDate, endDate, numOfGuest }) {
+
+  // const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
+  // const formattedEndtDate = format(new Date(endDate), "dd MMMM yy");
+  // const range = `${formattedStartDate} - ${formattedEndtDate}`;
+
   return (
     <div className="searchContainer">
-      <p className="searchQuantity">100 Boats found</p>
-      <h2 className="searchLocation">Sail in Ibiza</h2>
+      <p className="searchQuantity">100 Boats found for {numOfGuest} guests - range</p>
+      <h2 className="searchLocation">Sail in {city}</h2>
       <div className="filterButtonsContainer">
         <button className="filterButtons">Cancellation Flexibility</button>
         <button className="filterButtons">Type of Boat</button>

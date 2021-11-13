@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./exploreNearby.css";
 import SmallCard from "../smallCard/SmallCard";
 import BoatService from "../../services/boat.service";
-import { withAuth } from "../../context/auth.context";
+// import { withAuth } from "../../context/auth.context";
 
 export default class exploreNearby extends Component {
   constructor(props) {

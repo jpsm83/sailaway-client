@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch } from "react-router-dom";
 import "./reset.css";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import Search from "./pages/Search/Search";
 
 export default function App() {
+
   return (
     <div>
       <div className="navbarSticky">
@@ -15,7 +16,7 @@ export default function App() {
       </div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/search" component={Search} />
+        <Route path="/search/:city/:startDate/:endDate/:numOFGuest" component={Search} />
       </Switch>
       <div>
         <Footer />

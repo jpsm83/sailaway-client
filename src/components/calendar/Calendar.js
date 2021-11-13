@@ -13,7 +13,12 @@ export default function Calendar(props) {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [numOfGuest, setNumOfGuest] = useState(1);
+
+    // useHistory keep track of all the pages we navigate
     const history = useHistory();
+
+    // get the city from the navbar input
+    const city = props.searchInput;
 
     const handleSelect = (ranges) => {
         setStartDate(ranges.selection.startDate);
@@ -24,18 +29,17 @@ export default function Calendar(props) {
         props.resetInput();
     }
 
-
-    const search = () => {
+    const searchResult = () => {
+        // will push us to the url from the search
         history.push({
-            pathname: "/search",
+            pathname: `/search/${city}/${startDate}/${endDate}/${numOfGuest}`,
             query: {
-                location: props.searchInput,
+                city,
                 startDate: startDate.toISOString(),
                 endDate: endDate.toISOString(),
                 numOfGuest,
-            }
+            },
         });
-        console.log(history)
     }
 
     const selectionRange = {
@@ -61,7 +65,7 @@ export default function Calendar(props) {
             </div>
             <div className="numGuestButtonsContainer">
                 <button onClick={() => updatesearch()} >Cancel</button>
-                    <button id="guestButtonSearch" onClick={() => search()} >Search</button>
+                    <button id="guestButtonSearch" onClick={() => searchResult()} >Search</button>
             </div>
         </div>
     )
